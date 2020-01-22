@@ -6,7 +6,7 @@
   {% assign page_size_attr = 'hidden' %}
 {% endif %}
 
-<form class="collection-order-wrapper row flex-middle" action="{{ collection.url }}" method="get">
+<form class="collection-order-wrapper row flex-middle" action="{{ collection.url }}{% if filter %}/{{ filter.handle }}{% endif %}" method="get">
 
 
   <div class="collection-order is-order cell-6" {{ sort_attr }}>
