@@ -12,7 +12,7 @@
     {% assign discount = product.price | divided_by: product.old_price | times: -100 | plus: 100 | round: 0 %}
   {% endif %}
 {% endif %}
-
+{% assign varants = product.variants | sort: 'available' | sort: 'price' %}
 <form class="card cards-col {{ card_prefix }}" action="{{ cart_url }}" method="post" data-product-id="{{ product.id }}">
   <div class="card-info">
     <div class="card-image">
@@ -22,7 +22,8 @@
            скидка {{ discount }}%
         </div>
       {% endif %}
-        <a href="{{ product.url }}" class="image-inner">
+        
+        <a href="{{ product.url }}?variant_id={{ varants.first.id }}" class="image-inner">
           <div class="image-wraps">
             <span class="image-container is-square">
               <span class="image-flex-center">
@@ -45,13 +46,13 @@
     </div>
 
     <div class="card-title">
-      <a href="{{ product.url }}">
+      <a href="{{ product.url }}?variant_id={{ varants.first.id }}">
         {{ product.title }}
       </a>
     </div>
 
     <div class="card-quick">
-      <a href="{{ product.url }}" data-quick-view="{{ product.id }}">
+      <a href="{{ product.url }}?variant_id={{ varants.first.id }}" data-quick-view="{{ product.id }}">
         Быстрый просмотр
       </a>
     </div>
@@ -65,11 +66,11 @@
 
     <div class="row flex-between flex-middle">
       {% if product.variants.size > 1 %}
-        <a href="{{ product.url }}" class="bttn-prim">
+        <a href="{{ product.url }}?variant_id={{ varants.first.id }}" class="bttn-prim">
           Подробнее
         </a>
         {% else %}
-        <a href="{{ product.url }}" class="bttn-prim" data-item-add>
+        <a href="{{ product.url }}?variant_id={{ varants.first.id }}" class="bttn-prim" data-item-add>
           в корзину
         </a>
       {% endif %}
