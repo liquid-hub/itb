@@ -1,6 +1,6 @@
 <div class="product-info">
 
-  <form class="" action="{{ cart_url }}" method="post" data-product-id="{{ product.id }}" data-recently-view="{{ product.id }}" data-product-gallery=".js-product-gallery-main">
+  <form class="" action="{{ cart_url }}" method="post" data-product-id="{{ product.id }}" data-recently-view="{{ product.id }}" data-product-gallery=".js-product-gallery-main" data-product-json="{{ product|json|escape }}">
   <h1 class="product-title">
     {{ product.title }}
   </h1>
