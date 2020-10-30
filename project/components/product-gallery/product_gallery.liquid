@@ -33,7 +33,7 @@
   <div class="swiper-container gallery-thumbs js-gallery-thumbs">
       <div class="swiper-wrapper">
         {% for image in product.images %}
-          <div class="swiper-slide js-gallery-trigger">
+          <div data-product-img-id="{{ image.id }}" class="swiper-slide js-gallery-trigger">
             <div class="gallery-thumb image-container is-cover js-image-variant">
               <img src="{{ image.compact_url }}" alt="">
             </div>
