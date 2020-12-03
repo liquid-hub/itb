@@ -1,6 +1,6 @@
 <div class="row cart-item" data-item-accessory="{{ item.order_line_id }}" data-product-id="{{ item.product.id }}" data-item-id="{{ item.id }}">
   <div class="cell-2 item-image">
-    <a class="item-img" href="{{item.product.url}}?variant_id={{item.variant.id}}">
+    <a class="item-img" href="{{item.product.url | add_param: 'variant_id', item.variant.id }}">
       <span class="image-container is-square">
         <img  src="{{ item.variant.first_image.medium_url }}">
       </span>
