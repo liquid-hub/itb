@@ -1,10 +1,10 @@
 /*!
- * CartMan v0.2.14
+ * CartMan v0.2.15
  * Vladimir Ivanin
- * 2018
+ * 2020
  */
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-var getDataAttrName=require("./help").getDataAttrName,system=require("../variables").system;function deleteItems(e,t){var s=getDataAttrName(system.selectors.item_delete),r=getDataAttrName(system.selectors.item);if(!$(s).length)return!1;var a=[];$.each(Cart.order.order_lines,function(e,t){a.push(getDataAttrName(system.selectors.item,t.id))});var m=$(r).not(a.join(","));m.addClass(system.classes.removed),e.hideCartItems&&m.slideUp(300,function(){$(this).remove()})}module.exports=deleteItems;
+var getDataAttrName=require("./help").getDataAttrName,system=require("../variables").system;function deleteItems(e,t){var s=getDataAttrName(system.selectors.item_delete),a=getDataAttrName(system.selectors.item);if(!$(s).length)return!1;var r=["[data-widget-id]"];$.each(Cart.order.order_lines,function(e,t){r.push(getDataAttrName(system.selectors.item,t.id))});var m=$(a).not(r.join(","));m.addClass(system.classes.removed),e.hideCartItems&&m.slideUp(300,function(){$(this).remove()})}module.exports=deleteItems;
 },{"../variables":9,"./help":3}],2:[function(require,module,exports){
 var getDataAttrName=require("./help").getDataAttrName,system=require("../variables").system;function updateDiscounts(t){var e=getDataAttrName(system.selectors.discounts);if(!($(e).length&&t))return!1;$.ajax({url:"/cart_items",dataType:"html"}).done(function(t){var a=$(t).find(e).html();$(e).html(a)})}module.exports=updateDiscounts;
 },{"../variables":9,"./help":3}],3:[function(require,module,exports){
