@@ -13,7 +13,7 @@
   {% endif %}
   {% include "styles", is_checkout: true %}
 </head>
-<body class='adaptive template-is-checkout2 not-index-page'>
+<body class='adaptive template-is-checkout2 not-index-page' data-multi-lang="{{ language.not_default? }}">
   {% include "header" %}
   <div class='co-section--checkout_content'>
     <div class='co-section--checkout_order co-section--checkout_order_sided'>

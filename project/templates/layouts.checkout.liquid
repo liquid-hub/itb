@@ -13,7 +13,7 @@
   {% include "head", is_checkout: true %}
   {% include "styles" %}
 </head>
-<body class="template-is-checkout not-index-page">
+<body class="template-is-checkout not-index-page" data-multi-lang="{{ language.not_default? }}">
   {% include "header" %}
   <div class='wrapper body fc'>
     {% if client %}

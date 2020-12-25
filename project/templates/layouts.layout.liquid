@@ -13,7 +13,7 @@
   {% assign is_index = 'not-index-page' %}
 {% endunless %}
 
-<body class="template-is-{{ template | replace: '.', '_' }} {{ is_index }}">
+<body class="template-is-{{ template | replace: '.', '_' }} {{ is_index }}" data-multi-lang="{{ language.not_default? }}">
   {% include "header" %}
 
   {% include "fixed_header" %}
