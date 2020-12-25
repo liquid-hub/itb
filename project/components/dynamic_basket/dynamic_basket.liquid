@@ -6,7 +6,7 @@
   <div class="dynamic_basket-header">
     ваши покупки
   </div>
-  <form action="/cart_items" method="post" data-ajax-cart>
+  <form action="/cart_items" method="post" data-cart-form data-reload-on-coupon="false">
     <input type="hidden" name="_method" value="put">
     <input type="hidden" name="make_order" value="">
 
@@ -31,7 +31,7 @@
               <%= value.title  %>
             </div>
             <div class="dynamic_item-quantity">
-              <%= Shop.money.format(value.sale_price) %> х <%= value.quantity  %>
+              <span data-cart-item-price><%= Shop.money.format(value.sale_price) %></span> х <span data-cart-item-quantity-text><%= value.quantity %></span>
             </div>
 
             <div data-quantity class="quantity is-basket">
