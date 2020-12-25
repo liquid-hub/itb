@@ -27,7 +27,15 @@
           <div class="image-wraps">
             <span class="image-container is-square">
               <span class="image-flex-center">
-                <img src="{{ product.images.first.large_url }}">
+                {% assign img_width = 320 %}
+                {% assign product_img = product_variants_first.first_image | default: product.first_image %}
+                <picture>
+                  <source media="(min-width:769px)" data-srcset="{{ product_img | image_url: img_width, format: 'webp', resizing_type: 'fit_width' }}" type="image/webp" class="lazyload">
+                  <source media="(max-width:480px)" data-srcset="{{ product_img | image_url: 480, format: 'webp', resizing_type: 'fit_width' }}" type="image/webp" class="lazyload">
+
+                  <img data-src="{{ product_img | image_url: img_width, resizing_type: 'fit_width' }}" class="lazyload" alt="{{ img_title }}">
+               </picture>
+
               </span>
             </span>
           </div>
