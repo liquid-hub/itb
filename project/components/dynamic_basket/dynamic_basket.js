@@ -14,10 +14,4 @@ $(document).ready(function() {
       });
     }
   });
-
-  EventBus.subscribe('change_quantity:insales:item', function (data) {
-    if (data.action.quantity.current) {
-      $('[name="cart[quantity]['+data.id+']"]').val(data.action.quantity.current)
-    }
-  });
 });
