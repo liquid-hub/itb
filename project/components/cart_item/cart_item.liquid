@@ -9,7 +9,7 @@
   <div class="cell-3 show-flex flex-middle item-info">
     <div class="item-info-inner">
       <div class="item-title">
-        <a class="item-title-link" href="{{item.product.url}}?variant_id={{item.variant.id}}">
+        <a class="item-title-link" href="{{item.product.url | add_param: 'variant_id', item.variant.id }}">
           {{ item.product.title }}
         </a>
       </div>
