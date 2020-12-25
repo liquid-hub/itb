@@ -1,5 +1,6 @@
 {
   "theme_title": "Базовый шаблон",
+  "not_need_shop_bundle": true,
   "presets": {
     "custom": {
       "color_text_primary": "#222222",
