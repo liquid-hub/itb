@@ -24,6 +24,14 @@
     </div>
   </div>
 
+  {% if settings.feedback_captcha_enabled %}
+  <div class="feedback-row is-required" data-feedback-field>
+    <div class="feedback-field-wrap">
+      <div data-feedback-form-recaptcha></div>
+    </div>
+  </div>
+  {% endif %}
+
 
   <div class="feedback-row form-error" data-feedback-errors>
   </div>
