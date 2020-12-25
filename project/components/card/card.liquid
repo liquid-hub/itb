@@ -33,7 +33,7 @@
                   <source media="(min-width:769px)" data-srcset="{{ product_img | image_url: img_width, format: 'webp', resizing_type: 'fit_width' }}" type="image/webp" class="lazyload">
                   <source media="(max-width:480px)" data-srcset="{{ product_img | image_url: 480, format: 'webp', resizing_type: 'fit_width' }}" type="image/webp" class="lazyload">
 
-                  <img data-src="{{ product_img | image_url: img_width, resizing_type: 'fit_width' }}" class="lazyload" alt="{{ img_title }}">
+                  <img data-src="{{ product_img | image_url: img_width, resizing_type: 'fit_width' }}" class="lazyload">
                </picture>
 
               </span>
