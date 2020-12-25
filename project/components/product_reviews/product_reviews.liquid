@@ -49,9 +49,17 @@
           <textarea name="review[content]" class="form-field text-field is-textarea inpt">{{ review.content }}</textarea>
         </div>
 
+        {% if account.reviews_images_enabled? %}
+          <div class="form-row is-required cell-12 {% if review.errors contains 'image.image' %} input--error{% endif %} padded-sides">
+            <label for="review_image" class="form-label">{{ messages.field_photo }}</label>
+
+            <input type="file" name="review[image_attributes][image]" />
+          </div>
+        {% endif %}
+
         {% if review.captcha_enabled? %}
           <div class="form-row is-required cell-6  {% if review.errors contains 'captcha_solution' %}is-error{% endif %}">
-          
+
             <div id="captcha_challenge" class="captcha-recaptcha">
               {{ comment | recaptcha }}
             </div>

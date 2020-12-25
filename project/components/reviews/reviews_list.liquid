@@ -45,6 +45,11 @@
         <p class="text">
           {{ review.content }}
         </p>
+        {% if review.image.medium_url.size > 0 %}
+          <p class="text">
+            <img src="{{ review.image.medium_url }}" />
+          </p>
+        {% endif %}
       </div>
       <div class="review-footer">
       </div>
