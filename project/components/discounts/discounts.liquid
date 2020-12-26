@@ -13,23 +13,5 @@
   </div>
 </div>
 
-{% if cart.invalid_coupon? %}
-<div class="discounts-notice notice is-warning">
-  {{ cart.coupon_error }}
-</div>
-{% endif %}
-<div class="discounts-rows" data-cartman-discounts>
-  {% if cart.discounts.size > 0 %}
-    {% for discount in cart.discounts %}
-    <div class="row flex-between flex-middle discounts-row notice is-info">
-      <span class="cart_sidebar-total_label">{{ discount.description }}:</span> <span class="cart_sidebar-total">
-        {% if discount.percent %}
-        - {{ discount.percent | round: 0 }} %
-        {% else %}
-        - {{ discount.amount | money }}
-        {% endif %}
-      </span>
-    </div>
-    {% endfor %}
-  {% endif %}
-</div>
+<div class="discounts-notice notice is-warning" data-cart-discounts-error></div>
+<div class="discounts-rows cart-discounts" data-cart-discounts-ajax></div>
